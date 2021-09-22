@@ -15,6 +15,8 @@ export class HomeComponent /* implements OnInit */ {
   
   /* paises: any[] = []; */
   nuevasCanciones: any[] = [];
+
+  loading: boolean;
     
   constructor( /* private http: HttpClient */
       private Spotify: SpotifyService
@@ -26,11 +28,13 @@ export class HomeComponent /* implements OnInit */ {
                 this.paises = resp;
                 console.log(resp);
               } ) */
-    
+      this.loading = true;
+
       this.Spotify.getNewReleases()
                   .subscribe( (data:any) => {
                     console.log(data.albums.items);
                     this.nuevasCanciones = data.albums.items;
+                    this.loading = false;
                   });
 
   }
