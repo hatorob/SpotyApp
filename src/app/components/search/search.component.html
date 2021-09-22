@@ -6,7 +6,10 @@
     </div>
 </div>
 
-<div class="row row-cols-1 row-cols-md-2 g-4">
+<app-tarjetas [items]="artistas"></app-tarjetas>
+
+
+<!-- <div class="row row-cols-1 row-cols-md-2 g-4">
     <div class="col" *ngFor="let artista of artistas">
         <div class="card">
             <img [src]="artista.images | noimage" class="card-img-top" alt="...">
@@ -15,4 +18,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
