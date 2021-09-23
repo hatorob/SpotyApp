@@ -16,7 +16,7 @@ export class SearchComponent {
   
   buscar(termino: string) {
       console.log(termino)
-      this.spotify.getArtista( termino )
+      this.spotify.getArtistas( termino )
                   .subscribe( (data:any) => {
                     console.log(data.artists.items);
                     this.artistas = data.artists.items;
