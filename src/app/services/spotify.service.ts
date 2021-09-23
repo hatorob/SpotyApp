@@ -17,7 +17,7 @@ export class SpotifyService {
   getQuery( query:string ) {
     const url = `https://api.spotify.com/v1/${ query }`;
     const headers = new HttpHeaders({
-      'Authorization': 'Bearer BQCUepEJhgrB_U2rdDPmMReLmrHU58iSv8DQ3VtIt2YT99VY5WOcaq5uA-7TiPt4-jj25fpLm9dxaUYrVNo'
+      'Authorization': 'Bearer BQDuvzSqoWGsA9xUaMR86ztVGXnSwcjzCcM_Nof2C_06gzKeySuy5nwTRPgpD7jW2OdAd2BTsJugQpRHZ_g'
     });
 
     return this.http.get(url, { headers });
@@ -43,11 +43,19 @@ export class SpotifyService {
 
     /* return this.http.get(`https://api.spotify.com/v1/search?query=${ termino }&type=artist&offset=0&limit=15`, { headers }); */
   }
-
+  
+  //Obtener esta información del artista
   getArtista( id: string) {
     
      return this.getQuery(`artists/${ id }`);
      
    }
+
+   //Obtener la información de las canciones del artista
+   getTopTracks( id: string) {
+    
+    return this.getQuery(`artists/${id}/top-tracks?country=us`);
+    
+  }
 
 }
